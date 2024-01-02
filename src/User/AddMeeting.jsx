@@ -1,3 +1,4 @@
+
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { useForm } from 'react-hook-form';
@@ -16,12 +17,13 @@ import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel';
 import ServicesData from "../DataStore/ServicesData";
 import MyDatePicker from "./MyDatePicker";
-import MeetingData from "../DataStore/MeetingData";
-const AddMeeting=observer(()=>
+ import MeetingData from "../DataStore/MeetingData";
+import BuisnessDetails from "../DataStore/BuisnessDetails";
+
+
+const AddMeeting=observer(({setOpen})=>
 {
-  const [open, setOpen] = useState(false);
-    // const { register, handleSubmit } = useForm();
-    // const [service, setService] = useState("");
+      const list=ServicesData.listServices
     const [service, setService] = useState({
 
       id: "",
@@ -46,15 +48,10 @@ const AddMeeting=observer(()=>
       setOpen(false)
       e.target.reset();
     }
-      const handleClickOpen = () => setOpen(true);
-      const handleClose = () => setOpen(false);
-      const list=ServicesData.listServices
-    return(<>
-    <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
-    <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+         return(<>
+    
+    <Dialog open={open} >
+        <DialogTitle>Add Meeting</DialogTitle>
         <DialogContent>
     <form onSubmit={handleSubmit}>
     
@@ -62,13 +59,12 @@ const AddMeeting=observer(()=>
         <InputLabel id="demo-simple-select-standard-label">serviceType</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
-          name="serviceType"
           id="demo-simple-select-standard"
+          name="serviceType"
         //   value={service?.id} 
           onChange={handleChange}
           // {...register('serviceType')} 
           label="Service"
-          
         >
           {list.map((service) => (
             <MenuItem value={service.name}>{service.name}</MenuItem>
@@ -76,16 +72,12 @@ const AddMeeting=observer(()=>
         </Select>
       </FormControl>
       <p><TextField name="id" id="outlined-password-input" label="id" type="text" autoComplete="current-password"
-          // value={bussinesData.business.id}
           onChange={handleChange}/> </p>
            <p><TextField name="clientName" id="outlined-password-input" label="clientName" type="text" autoComplete="current-password"
-        // value={bussinesData.business.phone}
         onChange={handleChange}/> </p>
         <p><TextField name="clientPhone" id="outlined-password-input" label="clientPhone" type="text" autoComplete="current-password"
-      // value={bussinesData.business.owner}
       onChange={handleChange}/></p>
        <p><TextField name="clientEmail" id="outlined-password-input" label="clientEmail" type="text" autoComplete="current-password"
-    // value={bussinesData.business.logo}
     onChange={handleChange}
 
   /></p>
@@ -98,13 +90,11 @@ const AddMeeting=observer(()=>
                 }));
               }}
             />
-  <Button type='submit' variant="outlined" size="small">
-          Save
-        </Button>
+            <Button type="submit">Save</Button>
+
     </form>
     </DialogContent>
         <DialogActions>
-          <Button type='submit' onClick={handleClose}>X</Button>
         </DialogActions>
       </Dialog>
     </>)
