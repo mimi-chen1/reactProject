@@ -17,9 +17,7 @@ const Home=observer(()=>{
   };
 
     return(<div >
-      <Button className="buttonLogin" variant="outlined" onClick={() => { navigate("/admin") }}
-       style={{ position: 'absolute', top: 10, left: 10, padding: '10px' }}>
-            Login as admin</Button>
+     
 
  <BusinessDetailsDescription></BusinessDetailsDescription>
     

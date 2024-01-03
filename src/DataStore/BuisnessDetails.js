@@ -5,12 +5,12 @@ import axios from "axios";
 class BusinessDeatails {
    business = {
     id: "1",
-    name: "mimi",
-    address: "zirelzon 5",
-    phone: "0548572355",
-    owner: "mimi",
-    logo: "dhufr",
-    description: "frgh",
+    name: "Inbal Lenin",
+    address: "Anatot 3 Tel Aviv",
+    phone: "0542474047",
+    owner: "Inbal Lenin",
+    logo: "https://get-marketing.co.il/wp-content/uploads/2022/03/logo-design-for-architect-interior-design-inbal-levin-pic1-2.jpg",
+    description: "Professional and courteous service",
 };
    
    constructor(){

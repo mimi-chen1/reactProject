@@ -27,13 +27,14 @@ const serviceList = ServicesData.listServices;
   };
     return(
         <>
-              <Grid container spacing={2}>
+        <br></br>
+          <Grid container spacing={2}>
         {serviceList.map((x) => (
           <Grid item key={x.id} xs={12} sm={6} md={4} lg={3}>
             <Card sx={{ maxWidth: 345 }} id="card">
               <CardHeader
                 avatar={
-                  <Avatar sx={{  bgcolor:'#ff80ab'  }} aria-label="recipe">{x.id}</Avatar>
+                  <Avatar sx={{  bgcolor:'black'}} aria-label="recipe">{x.id}</Avatar>
                 }
                 action={
                   <IconButton aria-label="settings">
@@ -43,8 +44,7 @@ const serviceList = ServicesData.listServices;
                 title={x.name}
                 // subheader="שמחים לתת לכם שירות"
               />
-
-              <CardContent>
+                <CardContent>
                 <Typography paragraph>Description meeting: {x.description}</Typography>
               </CardContent>
 

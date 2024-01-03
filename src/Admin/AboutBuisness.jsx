@@ -6,18 +6,25 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
  import { observer } from 'mobx-react-lite';
  import BuisnessDetails from "../DataStore/BuisnessDetails";
+ import CardMedia from '@mui/material/CardMedia';
 const BusinessDetailsDescription = observer(()=> {
   
   return (
     <Card
       sx={{
         maxWidth: 400,
-        margin: 'auto',
+         margin: 'auto',
         marginTop: 4,
       //  backgroundColor: '#fce4ec',
         boxShadow: '0px 3px 15px rgba(0, 0, 0, 0.2)',
       }}
     >
+      <CardMedia
+        component="img"
+        height="140"
+        image={BuisnessDetails.business.logo}
+        alt="Logo"
+      />
       
       <CardContent>
         <Typography variant="h5" component="div">
@@ -35,11 +42,6 @@ const BusinessDetailsDescription = observer(()=> {
         <Typography color="text.secondary">
           <strong>Owner:</strong> {BuisnessDetails.business.owner}
         </Typography>
-        <img
-          src={BuisnessDetails.business.logo}
-          alt="logo"
-          style={{ maxWidth: '100%', marginTop: 8 }}
-        />
         <Typography variant="body2" color="text.secondary" style={{ marginTop: 8 }}>
           {BuisnessDetails.business.description}
         </Typography>
